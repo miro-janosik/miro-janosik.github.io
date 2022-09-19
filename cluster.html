@@ -1,8 +1,12 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+
+<html lang="en">
 <head>
-  <title>Marker Cluster Webmap</title>
-  <meta charset="utf-8" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ROXSD calls visualization – Leaflet Cluster Template</title>
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tachyons/4.11.1/tachyons.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css">
 
@@ -14,9 +18,24 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.0/papaparse.min.js"></script>
+
 </head>
-<body>
+
+<body class="helvetica">
+
+  <div id="map" class="vh-100 vw-100 bg-near-white"></div>
+
+  <div id="legend" class="bg-white fixed top-0 left-0 pa2 mt2 ml2 br1 o-90" style="z-index: 999; width: 380px">
+    <h1 class="f3 mt0">ROXSD calls heatmap visualization</h1>
+
+    <p class="measure mb1">
+      ROXSD data heatmap visualization
+    </p>
+
+  </div>
+
  <script>
+
    var map = L.map('map', {
       zoomControl: false, // Add zoom control separately below
       center: [18, 47], // Initial map center
@@ -43,6 +62,7 @@
       pane: 'shadowPane'  // always display on top
     }).addTo(map)
 	
+    // Read data from CSV file
   $.get('./data.csv', function(csvString) {
 
       // Use PapaParse to transform file into arrays
