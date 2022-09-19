@@ -32,19 +32,18 @@
       ).map(function(a) {
         return [ parseFloat(a[0]), parseFloat(a[1]) ]
       })
-    
-var markers = L.markerClusterGroup({
-  showCoverageOnHover: false
-});
+      
+	var markers = L.markerClusterGroup({
+	  showCoverageOnHover: false
+	});
 
-map.addLayer(markers);
+	map.addLayer(markers);
 
-points.on('ready', function () {
-  console.log(points.getLayers().length)
-  markers.addLayer(data);
-});
+        markers.addLayer(data);
+  })
+
     
   </script>
-Our first webmap with many points in Berlin.
+Clusters
  </body>
 </html>
