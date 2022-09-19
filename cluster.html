@@ -75,10 +75,12 @@
 	var markers = L.markerClusterGroup({
 	  showCoverageOnHover: false
 	});
-
+   
+        for (let p in data) {
+          markers.addLayer(L.marker(p[0], p[1]));
+        }
 	map.addLayer(markers);
-
-        markers.addLayer(data);
+ 
   })
 
     
